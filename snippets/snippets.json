@@ -3,6 +3,9 @@
         "prefix": "defineModule",
         "description": "Define custom SuiteScript AMD module",
         "body": [
+            "/**",
+            " *@NApiVersion 2.0",
+            " */",
             "define([], function() {",
             "",
             "	return {",
@@ -16,6 +19,9 @@
         "prefix": "requireModule",
         "description": "Require custom SuiteScript AMD module",
         "body": [
+            "/**",
+            " *@NApiVersion 2.0",
+            " */",
             "require([], function() {",
             "",
             "	$0",
@@ -29,7 +35,7 @@
         "description": "Define Restlet script module",
         "body": [
             "/**",
-            " *@NApiVersion 2.x",
+            " *@NApiVersion 2.0",
             " *@NScriptType Restlet",
             " */",
             "define([], function() {",
@@ -65,7 +71,7 @@
         "description": "Define User Event script module",
         "body": [
             "/**",
-            " * @NApiVersion 2.x",
+            " * @NApiVersion 2.0",
             " * @NScriptType UserEventScript",
             " * @NModuleScope SameAccount",
             " */",
@@ -327,7 +333,7 @@
         "description": "Define Map/Reduce script module",
         "body": [
             "/**",
-            " *@NApiVersion 2.x",
+            " *@NApiVersion 2.0",
             " *@NScriptType MapReduceScript",
             " */",
             "define([], function() {",
@@ -363,7 +369,7 @@
         "description": "Define Scheduled script module",
         "body": [
             "/**",
-            " * @NApiVersion 2.x",
+            " * @NApiVersion 2.0",
             " * @NScriptType ScheduledScript",
             " * @NModuleScope SameAccount",
             " */",
@@ -396,7 +402,7 @@
         "description": "Define Suitelet script module",
         "body": [
             "/**",
-            " *@NApiVersion 2.x",
+            " *@NApiVersion 2.0",
             " *@NScriptType Suitelet",
             " */",
             "define([], function() {",
@@ -417,7 +423,7 @@
         "description": "Define Workflow Action script module",
         "body": [
             "/**",
-            " *@NApiVersion 2.x",
+            " *@NApiVersion 2.0",
             " *@NScriptType WorkflowActionScript",
             " */",
             "define([], function() {",
@@ -438,7 +444,7 @@
         "description": "Define Portlet script module",
         "body": [
             "/**",
-            " *@NApiVersion 2.x",
+            " *@NApiVersion 2.0",
             " *@NScriptType Portlet",
             " */",
             "define([], function() {",
