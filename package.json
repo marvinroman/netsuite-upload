@@ -2,8 +2,8 @@
     "name": "netsuite-upload",
     "displayName": "NetSuite Upload",
     "description": "Upload and download NetSuite SuiteScript files and folders.",
-    "version": "1.1.2",
-    "publisher": "nsupload-org",
+    "version": "1.1.4",
+    "publisher": "marvinroman",
     "engines": {
         "vscode": "^1.22.2"
     },
@@ -76,7 +76,8 @@
                 }
             }
         },
-        "commands": [{
+        "commands": [
+            {
                 "command": "netsuite-upload.downloadFile",
                 "title": "Pull file from NetSuite",
                 "category": "NetSuite"
@@ -118,7 +119,8 @@
             }
         ],
         "menus": {
-            "explorer/context": [{
+            "explorer/context": [
+                {
                     "when": "!explorerResourceIsFolder",
                     "command": "netsuite-upload.downloadFile",
                     "group": "netsuite"
@@ -145,7 +147,8 @@
                 }
             ]
         },
-        "keybindings": [{
+        "keybindings": [
+            {
                 "command": "netsuite-upload.downloadFile",
                 "key": "ctrl+n ctrl+d"
             },
@@ -154,10 +157,12 @@
                 "key": "ctrl+n ctrl+u"
             }
         ],
-        "snippets": [{
-            "language": "javascript",
-            "path": "./snippets/snippets.json"
-        }]
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/snippets.json"
+            }
+        ]
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install"
