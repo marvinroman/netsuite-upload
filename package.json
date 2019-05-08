@@ -1,187 +1,182 @@
 {
-  "name": "netsuite-upload",
-  "displayName": "NetSuite Upload",
-  "description": "Upload and download NetSuite SuiteScript files and folders.",
-  "version": "1.1.2",
-  "publisher": "nsupload-org",
-  "engines": {
-    "vscode": "^1.22.2"
-  },
-  "categories": [
-    "Other"
-  ],
-  "homepage": "https://github.com/netsuite-upload-org/netsuite-upload",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/netsuite-upload-org/netsuite-upload"
-  },
-  "icon": "img/icon.png",
-  "keywords": [
-    "netsuite",
-    "netsuite upload",
-    "netsuite download",
-    "netsuite sync"
-  ],
-  "activationEvents": [
-    "onCommand:netsuite-upload.downloadFile",
-    "onCommand:netsuite-upload.uploadFile",
-    "onCommand:netsuite-upload.deleteFile",
-    "onCommand:netsuite-upload.previewFile",
-    "onCommand:netsuite-upload.downloadFolder",
-    "onCommand:netsuite-upload.addCustomDependency",
-    "onCommand:netsuite-upload.addNSDependency",
-    "onCommand:netsuite-upload.getRestletVersion"
-  ],
-  "main": "./extension",
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "NetSuite Connection Configuration",
-      "properties": {
-        "netSuiteUpload.authentication": {
-          "type": "string",
-          "description": "NLAuth-style authentication header. To use OAuth instead, leave this unset."
-        },
-        "netSuiteUpload.restlet": {
-          "type": "string",
-          "description": "Restlet URL. After you deploy the vscodeExtensionRestlet.js, set this to the Script Deployment External URL."
-        },
-        "netSuiteUpload.tempFolder": {
-          "type": "string",
-          "description": "Temporary folder (e.g. C:\\temp or /tmp). Used during diff comparisons between local and remote files."
-        },
-        "netSuiteUpload.netSuiteKey": {
-          "type": "string",
-          "description": "OAuth NetSuite Token ID"
-        },
-        "netSuiteUpload.netSuiteSecret": {
-          "type": "string",
-          "description": "OAuth NetSuite Token Secret"
-        },
-        "netSuiteUpload.consumerToken": {
-          "type": "string",
-          "description": "OAuth NetSuite Consumer Key"
-        },
-        "netSuiteUpload.consumerSecret": {
-          "type": "string",
-          "description": "OAuth NetSuite Consumer Secret"
-        },
-        "netSuiteUpload.realm": {
-          "type": "string",
-          "description": "Your NetSuite numeric account number (used for OAuth 'realm' parameter)"
-        },
-        "netSuiteUpload.rootDirectory": {
-          "type": "string",
-          "description": "NetSuite File Cabinet SuiteScripts sub-folder path to upload to. Defaults to 'SuiteScripts' if not set."
-        }
-      }
+    "name": "netsuite-upload",
+    "displayName": "NetSuite Upload",
+    "description": "Upload and download NetSuite SuiteScript files and folders.",
+    "version": "1.1.2",
+    "publisher": "nsupload-org",
+    "engines": {
+        "vscode": "^1.22.2"
     },
-    "commands": [
-      {
-        "command": "netsuite-upload.downloadFile",
-        "title": "Pull file from NetSuite",
-        "category": "NetSuite"
-      },
-      {
-        "command": "netsuite-upload.previewFile",
-        "title": "Compare file with NetSuite",
-        "category": "NetSuite"
-      },
-      {
-        "command": "netsuite-upload.uploadFile",
-        "title": "Push file to NetSuite",
-        "category": "NetSuite"
-      },
-      {
-        "command": "netsuite-upload.deleteFile",
-        "title": "Delete file in NetSuite",
-        "category": "NetSuite"
-      },
-      {
-        "command": "netsuite-upload.downloadFolder",
-        "title": "Pull folder from NetSuite",
-        "category": "NetSuite"
-      },
-      {
-        "command": "netsuite-upload.addCustomDependency",
-        "title": "Add Custom Dependency",
-        "category": "NetSuite"
-      },
-      {
-        "command": "netsuite-upload.addNSDependency",
-        "title": "Add NetSuite Dependency",
-        "category": "NetSuite"
-      },
-      {
-        "command": "netsuite-upload.getRestletVersion",
-        "title": "Get RESTlet version",
-        "category": "NetSuite"
-      }
+    "categories": [
+        "Other"
     ],
-    "menus": {
-      "explorer/context": [
-        {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.downloadFile",
-          "group": "netsuite"
-        },
-        {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.previewFile",
-          "group": "netsuite"
-        },
-        {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.uploadFile",
-          "group": "netsuite"
-        },
-        {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.deleteFile",
-          "group": "netsuite"
-        },
-        {
-          "when": "explorerResourceIsFolder",
-          "command": "netsuite-upload.downloadFolder",
-          "group": "netsuite"
-        }
-      ]
+    "homepage": "https://github.com/marvinroman/netsuite-upload",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/marvinroman/netsuite-upload"
     },
-    "keybindings": [
-      {
-        "command": "netsuite-upload.downloadFile",
-        "key": "ctrl+n ctrl+d"
-      },
-      {
-        "command": "netsuite-upload.uploadFile",
-        "key": "ctrl+n ctrl+u"
-      }
+    "icon": "img/icon.png",
+    "keywords": [
+        "netsuite",
+        "netsuite upload",
+        "netsuite download",
+        "netsuite sync"
     ],
-    "snippets": [
-      {
-        "language": "javascript",
-        "path": "./snippets/snippets.json"
-      }
-    ]
-  },
-  "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install"
-  },
-  "devDependencies": {
-    "@types/mocha": "^2.2.32",
-    "@types/node": "6.14.2",
-    "eslint": "^3.6.0",
-    "mocha": "5.2.0",
-    "typescript": "2.9.2",
-    "vscode": "1.1.27"
-  },
-  "dependencies": {
-    "compare-versions": "3.4.0",
-    "crypto": "1.0.1",
-    "esprima": "3.1.3",
-    "estraverse": "4.2.0",
-    "oauth-1.0a": "2.2.5",
-    "superagent": "4.1.0",
-    "underscore": "1.9.1"
-  }
+    "activationEvents": [
+        "onCommand:netsuite-upload.downloadFile",
+        "onCommand:netsuite-upload.uploadFile",
+        "onCommand:netsuite-upload.deleteFile",
+        "onCommand:netsuite-upload.previewFile",
+        "onCommand:netsuite-upload.downloadFolder",
+        "onCommand:netsuite-upload.addCustomDependency",
+        "onCommand:netsuite-upload.addNSDependency",
+        "onCommand:netsuite-upload.getRestletVersion"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "NetSuite Connection Configuration",
+            "properties": {
+                "netSuiteUpload.authentication": {
+                    "type": "string",
+                    "description": "NLAuth-style authentication header. To use OAuth instead, leave this unset."
+                },
+                "netSuiteUpload.restlet": {
+                    "type": "string",
+                    "description": "Restlet URL. After you deploy the vscodeExtensionRestlet.js, set this to the Script Deployment External URL."
+                },
+                "netSuiteUpload.tempFolder": {
+                    "type": "string",
+                    "description": "Temporary folder (e.g. C:\\temp or /tmp). Used during diff comparisons between local and remote files."
+                },
+                "netSuiteUpload.netSuiteKey": {
+                    "type": "string",
+                    "description": "OAuth NetSuite Token ID"
+                },
+                "netSuiteUpload.netSuiteSecret": {
+                    "type": "string",
+                    "description": "OAuth NetSuite Token Secret"
+                },
+                "netSuiteUpload.consumerToken": {
+                    "type": "string",
+                    "description": "OAuth NetSuite Consumer Key"
+                },
+                "netSuiteUpload.consumerSecret": {
+                    "type": "string",
+                    "description": "OAuth NetSuite Consumer Secret"
+                },
+                "netSuiteUpload.realm": {
+                    "type": "string",
+                    "description": "Your NetSuite numeric account number (used for OAuth 'realm' parameter)"
+                },
+                "netSuiteUpload.rootDirectory": {
+                    "type": "string",
+                    "description": "NetSuite File Cabinet SuiteScripts sub-folder path to upload to. Defaults to 'SuiteScripts' if not set."
+                }
+            }
+        },
+        "commands": [{
+                "command": "netsuite-upload.downloadFile",
+                "title": "Pull file from NetSuite",
+                "category": "NetSuite"
+            },
+            {
+                "command": "netsuite-upload.previewFile",
+                "title": "Compare file with NetSuite",
+                "category": "NetSuite"
+            },
+            {
+                "command": "netsuite-upload.uploadFile",
+                "title": "Push file to NetSuite",
+                "category": "NetSuite"
+            },
+            {
+                "command": "netsuite-upload.deleteFile",
+                "title": "Delete file in NetSuite",
+                "category": "NetSuite"
+            },
+            {
+                "command": "netsuite-upload.downloadFolder",
+                "title": "Pull folder from NetSuite",
+                "category": "NetSuite"
+            },
+            {
+                "command": "netsuite-upload.addCustomDependency",
+                "title": "Add Custom Dependency",
+                "category": "NetSuite"
+            },
+            {
+                "command": "netsuite-upload.addNSDependency",
+                "title": "Add NetSuite Dependency",
+                "category": "NetSuite"
+            },
+            {
+                "command": "netsuite-upload.getRestletVersion",
+                "title": "Get RESTlet version",
+                "category": "NetSuite"
+            }
+        ],
+        "menus": {
+            "explorer/context": [{
+                    "when": "!explorerResourceIsFolder",
+                    "command": "netsuite-upload.downloadFile",
+                    "group": "netsuite"
+                },
+                {
+                    "when": "!explorerResourceIsFolder",
+                    "command": "netsuite-upload.previewFile",
+                    "group": "netsuite"
+                },
+                {
+                    "when": "!explorerResourceIsFolder",
+                    "command": "netsuite-upload.uploadFile",
+                    "group": "netsuite"
+                },
+                {
+                    "when": "!explorerResourceIsFolder",
+                    "command": "netsuite-upload.deleteFile",
+                    "group": "netsuite"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "netsuite-upload.downloadFolder",
+                    "group": "netsuite"
+                }
+            ]
+        },
+        "keybindings": [{
+                "command": "netsuite-upload.downloadFile",
+                "key": "ctrl+n ctrl+d"
+            },
+            {
+                "command": "netsuite-upload.uploadFile",
+                "key": "ctrl+n ctrl+u"
+            }
+        ],
+        "snippets": [{
+            "language": "javascript",
+            "path": "./snippets/snippets.json"
+        }]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.32",
+        "@types/node": "6.14.2",
+        "eslint": "^3.6.0",
+        "mocha": "5.2.0",
+        "typescript": "2.9.2",
+        "vscode": "1.1.27"
+    },
+    "dependencies": {
+        "compare-versions": "3.4.0",
+        "crypto": "1.0.1",
+        "esprima": "3.1.3",
+        "estraverse": "4.2.0",
+        "oauth-1.0a": "2.2.5",
+        "superagent": "4.1.0",
+        "underscore": "1.9.1"
+    }
 }

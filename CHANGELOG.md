@@ -46,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Original author Tomáš Tvrdý [tvrdytom](https://github.com/tvrdytom) has turned over ownership of this project to me. I'm releasing an updated version 1.0 with many fixes.
 
-See the [readme.md](https://github.com/netsuite-upload-org/netsuite-upload) for install instructions. This version is not in the VS Code Marketplace yet.
+See the [readme.md](https://github.com/marvinroman/netsuite-upload) for install instructions. This version is not in the VS Code Marketplace yet.
 
 - Enabled pushing up the active document in the editor using a keybinding (I chose Ctrl+U, personally).
 - Improved cross-platform support (mac). Previously, Windows local file paths were assumed.
